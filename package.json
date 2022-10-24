@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "Return a promise for a hook value",
   "main": "index.js",
+  "homepage": "https://github.com/ahmadabdul3/usePromiseValue",
+  "url" : "https://github.com/ahmadabdul3/usePromiseValue/issues",
   "scripts": {
     "test": "test"
   },
