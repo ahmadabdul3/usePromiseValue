@@ -40,7 +40,7 @@ function usePromiseValue({
     deps = [],
     promiseUpdateTimeout = 200,
 } = {}) {
-	const [count, setCount] = React.useState(0);
+    const [count, setCount] = React.useState(0);
     const [mountRender, setMountRender] = React.useState(true);
     const resolve = React.useRef();
     const promise = React.useRef(new Promise(_resolve => {
