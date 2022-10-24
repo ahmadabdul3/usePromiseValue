@@ -36,8 +36,12 @@ exports.usePromiseValue = usePromiseValue;
 //
 
 // - not passing dependencies will only make this hook resolve 1 promise
-function usePromiseValue({ deps = [], promiseUpdateTimeout = 200 } = {}) {
-    const [count, setCount] = React.useState(0);
+function usePromiseValue({
+    deps = [],
+    promiseUpdateTimeout = 200,
+} = {}) {
+	const [count, setCount] = React.useState(0);
+    const [mountRender, setMountRender] = React.useState(true);
     const resolve = React.useRef();
     const promise = React.useRef(new Promise(_resolve => {
         // - useRef is actually called on every render, but the
@@ -50,6 +54,11 @@ function usePromiseValue({ deps = [], promiseUpdateTimeout = 200 } = {}) {
     }));
 
     React.useEffect(() => {
+        setMountRender(false);
+    }, []);
+
+    React.useEffect(() => {
+        if (mountRender) return;
         setTimeout(() => {
             setCount(count + 1);
         }, promiseUpdateTimeout);
@@ -60,6 +69,7 @@ function usePromiseValue({ deps = [], promiseUpdateTimeout = 200 } = {}) {
     }, [...deps]);
 
     React.useEffect(() => {
+        if (mountRender) return;
         promise.current = new Promise(r => resolve.current = r);
     }, [count]);
 
