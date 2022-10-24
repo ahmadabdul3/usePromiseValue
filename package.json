@@ -1,0 +1,14 @@
+{
+  "name": "usepromisevalue",
+  "version": "0.0.1",
+  "description": "Return a promise for a hook value",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Abdul Ahmad",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
