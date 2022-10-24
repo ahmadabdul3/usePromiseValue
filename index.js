@@ -20,7 +20,7 @@ exports.usePromiseValue = usePromiseValue;
 //
 //     return {
 //         state,
-//         statePromise,
+//         statePromise: promise,
 //     };
 // }
 //
