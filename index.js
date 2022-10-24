@@ -36,7 +36,7 @@ exports.usePromiseValue = usePromiseValue;
 //
 
 // - not passing dependencies will only make this hook resolve 1 promise
-function usePromiseValue({ deps, promiseUpdateTimeout = 200 } = {}) {
+function usePromiseValue({ deps = [], promiseUpdateTimeout = 200 } = {}) {
     const [count, setCount] = React.useState(0);
     const resolve = React.useRef();
     const promise = React.useRef(new Promise(_resolve => {
