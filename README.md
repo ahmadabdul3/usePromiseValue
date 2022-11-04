@@ -2,7 +2,7 @@
 Return a hook value as a promise
 
 ```
-function anotherHook() {
+function useSomeHook() {
     const { dependency } = useSomeHook();
     const [state, setState] = React.useState();
     const { promise, resolve } = usePromiseValue();
@@ -24,7 +24,7 @@ function anotherHook() {
     };
 }
 
-const { statePromise } = anotherHook();
+const { statePromise } = useSomeHook();
 const result = await statePromise;
 ```
 
